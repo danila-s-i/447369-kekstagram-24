@@ -42,8 +42,8 @@ export function getRandomComments(idSeed) {
    * Возвращает массив случайно сгенерированных фотографий
    * @returns {array} [ {id: ..., url: ..., description: ..., likes: ..., comments: ...}, ... ]
    */
-export function getRandomPhotos() {
-  const NUMBER_PHOTOS = 25;
+export function getRandomPictures() {
+  const NUMBER_PICTURES = 25;
   const DESCRIPTIONS = [
     'Красные тюльпаны', 'Рыжий кот', 'Отдыхаю на пляже', 'Бегемот', 'Любимая кружка',
     'Концерт', 'В баре', 'Отдыхаем с друзьями', 'Чёрное море', 'Завтрак',
@@ -52,16 +52,16 @@ export function getRandomPhotos() {
     'Ностальгия', 'Закат', 'Отдых на природе', 'Шашлыки', 'ВДНХ',
   ];
 
-  const photos = [];
+  const pictures = [];
 
-  const idArr = Array.from({length: NUMBER_PHOTOS}, (value, index) => index + 1);
-  const urlArr = Array.from({length: NUMBER_PHOTOS}, (value, index) => `photos/${  index + 1  }.jpg`);
-  const descriptionsArr = Array.from({length: NUMBER_PHOTOS}, () => DESCRIPTIONS[getRandomIntegerFromRange(0, DESCRIPTIONS.length - 1)]);
-  const likesArr = Array.from({length: NUMBER_PHOTOS}, () => getRandomIntegerFromRange(15, 200));
-  const commentsArr = Array.from({length: NUMBER_PHOTOS}, (value, index) => getRandomComments(index));
+  const idArr = Array.from({length: NUMBER_PICTURES}, (value, index) => index + 1);
+  const urlArr = Array.from({length: NUMBER_PICTURES}, (value, index) => `pictures/${  index + 1  }.jpg`);
+  const descriptionsArr = Array.from({length: NUMBER_PICTURES}, () => DESCRIPTIONS[getRandomIntegerFromRange(0, DESCRIPTIONS.length - 1)]);
+  const likesArr = Array.from({length: NUMBER_PICTURES}, () => getRandomIntegerFromRange(15, 200));
+  const commentsArr = Array.from({length: NUMBER_PICTURES}, (value, index) => getRandomComments(index));
 
-  for (let i = 0; i < NUMBER_PHOTOS; i++) {
-    photos.push({
+  for (let i = 0; i < NUMBER_PICTURES; i++) {
+    pictures.push({
       id: idArr[i],
       url: urlArr[i],
       description: descriptionsArr[i],
@@ -70,5 +70,5 @@ export function getRandomPhotos() {
     });
   }
 
-  return photos;
+  return pictures;
 }
