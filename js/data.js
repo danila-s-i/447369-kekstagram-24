@@ -5,7 +5,7 @@ import {getRandomIntegerFromRange} from './util.js';
  * @param {number} idSeed число для генерации id
  * @returns {array} [ {id: ..., avatar: ..., message: ..., name: ...}, ... ]
  */
-export function getRandomComments(idSeed) {
+function getRandomComments(idSeed) {
   const MAX_COMMENTS = 14;
   const COMMENT_NAMES = [
     'Оля','Николай','Олег','Гриша','Наташа',
@@ -28,7 +28,7 @@ export function getRandomComments(idSeed) {
 
   for (let i = 0; i < numberComments; i++) {
     comments.push({
-      id: `${ i + MAX_COMMENTS * (idSeed - 1) }`,
+      id: `${ i + MAX_COMMENTS * (idSeed) }`,
       avatar: `img/avatar-${  getRandomIntegerFromRange(1, 6)  }.svg`,
       message: COMMENT_MESSAGES[getRandomIntegerFromRange(0, COMMENT_MESSAGES.length - 1)],
       name: COMMENT_NAMES[getRandomIntegerFromRange(0, COMMENT_NAMES.length - 1)],
@@ -42,7 +42,7 @@ export function getRandomComments(idSeed) {
    * Возвращает массив случайно сгенерированных фотографий
    * @returns {array} [ {id: ..., url: ..., description: ..., likes: ..., comments: ...}, ... ]
    */
-export function getRandomPictures() {
+function getRandomPictures() {
   const NUMBER_PICTURES = 25;
   const DESCRIPTIONS = [
     'Красные тюльпаны', 'Рыжий кот', 'Отдыхаю на пляже', 'Бегемот', 'Любимая кружка',
@@ -72,3 +72,7 @@ export function getRandomPictures() {
 
   return pictures;
 }
+
+const picturesData = getRandomPictures();
+
+export {picturesData};
